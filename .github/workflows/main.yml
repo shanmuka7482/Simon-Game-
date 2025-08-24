@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted  # must match your runner labels
+    runs-on: [self-hosted, Linux, ARM64]  # must match your runner labels
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,4 +19,4 @@ jobs:
         run: |
           docker compose down
           docker compose pull
-          docker compose up -d --build --force-recreate
+          docker compose up -d --build
