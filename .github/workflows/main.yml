@@ -1,19 +1,16 @@
 name: Deploy to Pi 5
 
 on:
-  workflow_dispatch:  # so you can click "Run workflow" manually
+  workflow_dispatch:
   push:
-    branches: [ main ] # optional, auto-deploy on push
+    branches: [ main ]
 
 jobs:
   deploy:
-    runs-on: [self-hosted, Linux, ARM64]  # must match your runner labels
+    runs-on: [self-hosted, Linux, ARM64]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Pull latest code (just to be safe)
-        run: git pull origin main
 
       - name: Build & Run Docker
         run: |
