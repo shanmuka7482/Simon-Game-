@@ -5,4 +5,6 @@ services:
     build: .
     ports:
       - "8080:80"
-
+    volumes:
+      # This line mounts your current folder into the container
+      - ./:/usr/share/nginx/html/simon-game/
